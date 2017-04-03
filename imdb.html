@@ -1,0 +1,27 @@
+
+<div  ng-controller="repoCtrl" ng-cloak>
+<div  layout="row" layout-wrap="" layout-margin="" layout-align="center"  ng-cloak="" class="inputdemoIcons">
+  <md-content class="md-no-momentum" >
+    <md-input-container class="md-icon-float md-block">
+      <label>Find Repo Details</label>
+      <md-icon md-font-set="material-icons md-48"> &#xE43A; </md-icon>
+      <input ng-keyup="fetchdata()" ng-model="userinput" type="text">
+    </md-input-container>
+  </md-content>
+  <md-button class="md-raised md-primary buttonstyle" ng-click="fetchdata()">Find Details</md-button>
+</div>
+ <md-content ng-if="waiting">
+   <div layout="row" layout-sm="column" layout-align="space-around">
+      <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+    </div>
+ </md-content>
+ <md-content  ng-hide="repo.Response == 'False'" layout="column" layout-align="center" class="labelcolor"  layout-padding>
+   <div ng-repeat="repos in repo track by $index" flex="" layout="row">
+   <div flex="20"></div flex="60"><div>({{$index+1}}) {{repos.name}} - <a ng-href="{{repos.url}}" target="_blank">{{repos.url}}</a></div><div flex></div>
+   </div>
+ </md-content>
+</div>
+
+
+
+
